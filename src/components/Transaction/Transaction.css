@@ -40,10 +40,16 @@
     background-color: #8b8b8b;
 }
 
+.paidMarkButtonParent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
 .paidParent {
     display: flex;
     align-items: center;
-    margin-top: 5px;
 }
 
 .paidIcon {
@@ -55,4 +61,11 @@
     margin-left: 5px;
     color: #8b8b8b;
     font-size: small;
+}
+
+.markAsPaidButton {
+    font-size: x-small !important;
+    color: #8b8b8b !important;
+    background-color: #51546e !important;
+    border-radius: 10px !important;
 }

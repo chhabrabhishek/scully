@@ -1,19 +1,36 @@
 import './Transaction.css';
+import Button from '@mui/material/Button';
 import RadioButtonUncheckedRoundedIcon from '@mui/icons-material/RadioButtonUncheckedRounded';
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import { useState } from 'react';
 
-const Transaction = () => {
+const Transaction = (props) => {
+
+    const [transactionStatus, setTransactionStatus] = useState(props.transactionInfo.transactionStatus == 'paid'? true: false);
+
+    const handleMarkAsPaid = () => {
+        setTransactionStatus(true);
+    }
+
     return (
         <div className='transactionParent'>
             <div className='userAndDateParent'>
-                <p className='username'>Lend To @anujchhabra</p>
-                <p className='date'>2nd May 2022</p>
+                <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Lend To': 'Borrowed From'} @{props.transactionInfo.transactionWith}</p>
+                <p className='date'>{props.transactionInfo.transactionDate}</p>
             </div>
-            <p className='price'>₹ 2500</p>
-            <p className='reason'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus iusto adipisci recusandae ab dolorem, omnis, non incidunt rem facere maiores soluta consectetur fuga provident alias reprehenderit quidem at hic assumenda!</p>
+            <p className='price'>₹ {props.transactionInfo.money}</p>
+            <p className='reason'>{props.transactionInfo.reason}</p>
             <hr className='divider'></hr>
-            <div className='paidParent'>
-                <RadioButtonUncheckedRoundedIcon className='paidIcon' fontSize='small' />
-                <p className='paid'>Unpaid</p>
+            <div className='paidMarkButtonParent'>
+                <div className='paidParent'>
+                    {transactionStatus? <CheckCircleRoundedIcon className='paidIcon' fontSize='small' />: <RadioButtonUncheckedRoundedIcon className='paidIcon' fontSize='small' />}
+                    <p className='paid'>{transactionStatus? 'Paid': 'Unpaid'}</p>
+                </div>
+                {props.transactionInfo.transactionType == 'lends' && !transactionStatus &&
+                    <Button className='markAsPaidButton' variant="text" onClick={handleMarkAsPaid}>
+                        Mark as paid
+                    </Button>
+                }
             </div>
         </div>
     )
