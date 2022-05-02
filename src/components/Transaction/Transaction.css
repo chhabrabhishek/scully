@@ -1,0 +1,58 @@
+.transactionParent {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #3f4156;
+    border-radius: 4px;
+}
+
+.userAndDateParent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.username {
+    margin: 0;
+    font-size: smaller;
+    color: #71c6dd;
+}
+
+.date {
+    margin: 0;
+    font-size: smaller;
+    color: #8b8b8b;
+}
+
+.price {
+    margin: 5px 0;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.reason {
+    color: white;
+}
+
+.divider {
+    border: none;
+    height: 0.2px;
+    background-color: #8b8b8b;
+}
+
+.paidParent {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.paidIcon {
+    color: #71c6dd;
+}
+
+.paid {
+    margin: 0;
+    margin-left: 5px;
+    color: #8b8b8b;
+    font-size: small;
+}

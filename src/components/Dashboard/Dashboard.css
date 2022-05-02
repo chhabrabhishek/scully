@@ -1,0 +1,27 @@
+.dashboardParent {
+    margin-top: 20px;
+}
+
+.addTransaction {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addTransactionButton {
+    background-color: #71c6dd !important;
+    color: black !important;
+    margin-right: 20px !important;
+    text-transform: none !important;
+}
+
+.transactionListBinder {
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textAllTransactions {
+    margin: 0;
+    font-size: smaller;
+    color: #71c6dd;
+}
