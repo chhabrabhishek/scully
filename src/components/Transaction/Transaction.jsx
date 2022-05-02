@@ -13,25 +13,51 @@ const Transaction = (props) => {
     }
 
     return (
-        <div className='transactionParent'>
-            <div className='userAndDateParent'>
-                <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Lend To': 'Borrowed From'} @{props.transactionInfo.transactionWith}</p>
-                <p className='date'>{props.transactionInfo.transactionDate}</p>
-            </div>
-            <p className='price'>₹ {props.transactionInfo.money}</p>
-            <p className='reason'>{props.transactionInfo.reason}</p>
-            <hr className='divider'></hr>
-            <div className='paidMarkButtonParent'>
-                <div className='paidParent'>
-                    {transactionStatus? <CheckCircleRoundedIcon className='paidIcon' fontSize='small' />: <RadioButtonUncheckedRoundedIcon className='paidIcon' fontSize='small' />}
-                    <p className='paid'>{transactionStatus? 'Paid': 'Unpaid'}</p>
+        <div>
+            {props.transactionInfo.transactionFrom == localStorage.getItem('username') &&
+                <div className='transactionParent'>
+                    <div className='userAndDateParent'>
+                        <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Lend To': 'Borrowed From'} @{props.transactionInfo.transactionWith}</p>
+                        <p className='date'>{props.transactionInfo.transactionDate}</p>
+                    </div>
+                    <p className='price'>₹ {props.transactionInfo.money}</p>
+                    <p className='reason'>{props.transactionInfo.reason}</p>
+                    <hr className='divider'></hr>
+                    <div className='paidMarkButtonParent'>
+                        <div className='paidParent'>
+                            {transactionStatus? <CheckCircleRoundedIcon className='paidIcon' fontSize='small' />: <RadioButtonUncheckedRoundedIcon className='paidIcon' fontSize='small' />}
+                            <p className='paid'>{transactionStatus? 'Paid': 'Unpaid'}</p>
+                        </div>
+                        {props.transactionInfo.transactionType == 'lends' && !transactionStatus &&
+                            <Button className='markAsPaidButton' variant="text" onClick={handleMarkAsPaid}>
+                                Mark as paid
+                            </Button>
+                        }
+                    </div>
                 </div>
-                {props.transactionInfo.transactionType == 'lends' && !transactionStatus &&
-                    <Button className='markAsPaidButton' variant="text" onClick={handleMarkAsPaid}>
-                        Mark as paid
-                    </Button>
-                }
-            </div>
+            }
+            {props.transactionInfo.transactionFrom != localStorage.getItem('username') &&
+                <div className='transactionParent'>
+                    <div className='userAndDateParent'>
+                        <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Borrowed From': 'Lend To'} @{props.transactionInfo.transactionFrom}</p>
+                        <p className='date'>{props.transactionInfo.transactionDate}</p>
+                    </div>
+                    <p className='price'>₹ {props.transactionInfo.money}</p>
+                    <p className='reason'>{props.transactionInfo.reason}</p>
+                    <hr className='divider'></hr>
+                    <div className='paidMarkButtonParent'>
+                        <div className='paidParent'>
+                            {transactionStatus? <CheckCircleRoundedIcon className='paidIcon' fontSize='small' />: <RadioButtonUncheckedRoundedIcon className='paidIcon' fontSize='small' />}
+                            <p className='paid'>{transactionStatus? 'Paid': 'Unpaid'}</p>
+                        </div>
+                        {props.transactionInfo.transactionType != 'lends' && !transactionStatus &&
+                            <Button className='markAsPaidButton' variant="text" onClick={handleMarkAsPaid}>
+                                Mark as paid
+                            </Button>
+                        }
+                    </div>
+                </div>
+            }
         </div>
     )
 }

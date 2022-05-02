@@ -1,0 +1,121 @@
+.signInSignUpParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+}
+
+.signInSignUpContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    background-color: #3f4156;
+    border-radius: 8px;
+}
+
+.signInSignUpTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #696d97;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.signInSignUpSubTitle {
+    color: #71c6dd;
+    margin: 40px 0;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.signInSignUpFields {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 10% 20px 10%;
+}
+
+.signInSignUpFieldsTitle {
+    color: white;
+    margin-bottom: 15px;
+    opacity: 50%;
+    font-size: small;
+    margin-top: 0;
+}
+
+.signInSignUpInput {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #696d97;
+    padding-left: 8px;
+    outline: #71c6dd;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.signInSignUpInput::-webkit-outer-spin-button, .signInSignUpInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.signInSignUpInput:focus {
+    border: 1px solid #71c6dd;
+}
+
+.signInSignUpBtnParent {
+    width: 80%;
+}
+
+.signInSignUpBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #71c6dd;
+    font-weight: lighter;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.signInSignUpError {
+    opacity: 50%;
+    color: white;
+    font-size: small;
+    margin-top: 8px;
+}
+
+.signInSignUpBottonText {
+    margin-top: 25px;
+    margin-bottom: 8px;
+    opacity: 50%;
+    color: white;
+    font-size: small;
+}
+
+.toSignUpSignIn {
+    color: #71c6dd;
+    font-size: small;
+    margin-top: 0;
+    margin-bottom: 40px;
+    cursor: pointer;
+    border-bottom: 1px solid #71c6dd;
+}
+
+@media screen and (max-width: 641px) {
+    .signInSignUpContent {
+        width: 90%;
+    }
+}
