@@ -7,7 +7,7 @@ const TransactionList = () => {
     const [transactionList, setTransactionList] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/getTransactions/${localStorage.getItem('username')}`, {
+        fetch(`http://localhost:8000/get_transactions/${sessionStorage.getItem('username')}`, {
             method: 'GET'
         })
         .then(response => {

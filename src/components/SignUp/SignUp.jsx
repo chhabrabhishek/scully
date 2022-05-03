@@ -34,7 +34,7 @@ const SignUp = () => {
         }
         else {
             setSignUpError(false);
-            localStorage.setItem('username', username);
+            sessionStorage.setItem('username', username);
             navigate('/home');
         }
     }

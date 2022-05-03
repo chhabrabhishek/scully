@@ -25,7 +25,7 @@ const SignIn = () => {
         }
         else {
             setSignInError(false);
-            localStorage.setItem('username', username);
+            sessionStorage.setItem('username', username);
             navigate('/home');
         }
     }

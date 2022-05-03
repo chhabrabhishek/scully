@@ -10,11 +10,19 @@ const Transaction = (props) => {
 
     const handleMarkAsPaid = () => {
         setTransactionStatus(true);
+        fetch(`http://localhost:8000/mark_paid/${props.transactionInfo.transactionId}`, {
+            method: 'GET'
+        })
+        .then(response => {
+            response.json().then(data => {
+                console.log(data);
+            })
+        })
     }
 
     return (
         <div>
-            {props.transactionInfo.transactionFrom == localStorage.getItem('username') &&
+            {props.transactionInfo.transactionFrom == sessionStorage.getItem('username') &&
                 <div className='transactionParent'>
                     <div className='userAndDateParent'>
                         <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Lend To': 'Borrowed From'} @{props.transactionInfo.transactionWith}</p>
@@ -36,7 +44,7 @@ const Transaction = (props) => {
                     </div>
                 </div>
             }
-            {props.transactionInfo.transactionFrom != localStorage.getItem('username') &&
+            {props.transactionInfo.transactionFrom != sessionStorage.getItem('username') &&
                 <div className='transactionParent'>
                     <div className='userAndDateParent'>
                         <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Borrowed From': 'Lend To'} @{props.transactionInfo.transactionFrom}</p>
