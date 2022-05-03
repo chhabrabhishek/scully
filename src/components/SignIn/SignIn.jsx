@@ -51,6 +51,7 @@ const SignIn = () => {
                     if(data.userExists) {
                         setSignInError(false);
                         sessionStorage.setItem('username', username);
+                        sessionStorage.setItem('balance', data.balance);
                         navigate('/home');
                     }
                 })

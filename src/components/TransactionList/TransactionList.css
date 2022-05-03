@@ -1,3 +1,29 @@
+.statisticsParent {
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.statistics {
+    color: #e5e5e5;
+    background-color: #696d97;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 5px;
+    width: 30%;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.textAllTransactions {
+    margin: 0;
+    margin-top: 30px;
+    font-size: smaller;
+    color: #71c6dd;
+}
+
 .searchFilterParent {
     margin-top: 20px;
     display: flex;

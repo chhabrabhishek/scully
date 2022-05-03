@@ -107,16 +107,13 @@ const Dashboard = () => {
 
     return (
         <div className='dashboardParent'>
-            <div className='addTransaction'>
+            <div className='addTransactionParent'>
                 <p className='greeting'>Hello @{sessionStorage.getItem('username')}</p>
                 <Button className='addTransactionButton' variant="text" startIcon={<PaidRoundedIcon />} onClick={handleClickOpen}>
                     Add a Transaction
                 </Button>
             </div>
             <div className='transactionListBinder'>
-                <p className='textAllTransactions'>
-                    All Transactions
-                </p>
                 <TransactionList />
             </div>
             <Dialog open={open} onClose={handleClose} className="dialog">

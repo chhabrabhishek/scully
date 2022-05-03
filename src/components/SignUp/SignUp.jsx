@@ -56,6 +56,7 @@ const SignUp = () => {
                     if(data.userAdded) {
                         setSignUpError(false);
                         sessionStorage.setItem('username', username);
+                        sessionStorage.setItem('balance', balance);
                         navigate('/home');
                     }
                 })
