@@ -37,7 +37,7 @@ const SignIn = () => {
                 "content-type": "application/json"
             }
 
-            fetch(`http://localhost:8000/user_login`, {
+            fetch(`https://scully-server.herokuapp.com/user_login`, {
                 method: 'POST',
                 body: JSON.stringify(body),
                 headers: headers

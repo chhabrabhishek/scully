@@ -55,7 +55,7 @@ const Dashboard = () => {
     }
 
     const handleClickOpen = () => {
-        fetch('http://localhost:8000/get_users', {
+        fetch('https://scully-server.herokuapp.com/get_users', {
             method: 'GET'
         })
         .then(response => {
@@ -92,7 +92,7 @@ const Dashboard = () => {
                 "content-type": "application/json"
             }
 
-            fetch(`http://localhost:8000/add_transaction`, {
+            fetch(`https://scully-server.herokuapp.com/add_transaction`, {
                 method: 'POST',
                 body: JSON.stringify(body),
                 headers: headers

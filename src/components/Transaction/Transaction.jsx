@@ -10,7 +10,7 @@ const Transaction = (props) => {
 
     const handleMarkAsPaid = () => {
         setTransactionStatus(true);
-        fetch(`http://localhost:8000/mark_paid/${props.transactionInfo.transactionId}`, {
+        fetch(`https://scully-server.herokuapp.com/mark_paid/${props.transactionInfo.transactionId}`, {
             method: 'GET'
         })
         .then(response => {

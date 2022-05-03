@@ -15,7 +15,7 @@ const TransactionList = () => {
     const [visibleTransactionList, setvisibleTransactionList] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/get_transactions/${sessionStorage.getItem('username')}`, {
+        fetch(`https://scully-server.herokuapp.com/get_transactions/${sessionStorage.getItem('username')}`, {
             method: 'GET'
         })
         .then(response => {
