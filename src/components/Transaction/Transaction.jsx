@@ -28,7 +28,7 @@ const Transaction = (props) => {
                         <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Lend To': 'Borrowed From'} @{props.transactionInfo.transactionWith}</p>
                         <p className='date'>{props.transactionInfo.transactionDate}</p>
                     </div>
-                    <p className='price'>₹ {props.transactionInfo.money}</p>
+                    <p className='price'>₹ {props.transactionInfo.amount}</p>
                     <p className='reason'>{props.transactionInfo.reason}</p>
                     <hr className='divider'></hr>
                     <div className='paidMarkButtonParent'>
@@ -50,7 +50,7 @@ const Transaction = (props) => {
                         <p className='username'>{props.transactionInfo.transactionType == 'lends'? 'Borrowed From': 'Lend To'} @{props.transactionInfo.transactionFrom}</p>
                         <p className='date'>{props.transactionInfo.transactionDate}</p>
                     </div>
-                    <p className='price'>₹ {props.transactionInfo.money}</p>
+                    <p className='price'>₹ {props.transactionInfo.amount}</p>
                     <p className='reason'>{props.transactionInfo.reason}</p>
                     <hr className='divider'></hr>
                     <div className='paidMarkButtonParent'>
