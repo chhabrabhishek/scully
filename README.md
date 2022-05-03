@@ -9,6 +9,8 @@
 
 * #### Make sure you have Node and NPM installed globally in your local system.
 
+* Open the command-line terminal in the root directory of this project.
+
 * #### Run `npm install` command to install all the dependencies used by this project.
 
 * #### Once `npm install` is done successfully. Run `npm start` to run the server locally.
