@@ -3,16 +3,14 @@
 ## The FLASK server we use to get and manipulate data is hosted on [Heroku](https://scully-server.herokuapp.com/). 
 ## The code of the FLASK server can be find [here](https://github.com/chhabrabhishek/scully-server).
 
-## Steps to run the front end React application
+### Steps to run the front end React application
 
-### Clone the project from [here](https://github.com/chhabrabhishek/scully) and save it in your local environment.
+* #### Clone the project from [here](https://github.com/chhabrabhishek/scully) and save it in your local environment.
 
-### Make sure you have Node and NPM installed globally in your local system.
+* #### Make sure you have Node and NPM installed globally in your local system.
 
-### Run `npm install` command to install all the dependencies used by this project.
+* #### Run `npm install` command to install all the dependencies used by this project.
 
-### Once `npm install` is done successfully. Run `npm start` to run the server locally
-#### Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* #### Once `npm install` is done successfully. Run `npm start` to run the server locally.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* #### Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
