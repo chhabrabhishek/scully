@@ -13,6 +13,7 @@ const TitleBar = (props) => {
 
     const handleSignOut = () => {
         navigate('/signIn');
+        sessionStorage.clear();
     }
 
     return (

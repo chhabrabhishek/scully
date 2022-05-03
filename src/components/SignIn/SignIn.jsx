@@ -10,6 +10,7 @@ const SignIn = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [signInError, setSignInError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleUsername = (e) => {
         setUsername(e.target.value);
@@ -22,11 +23,38 @@ const SignIn = () => {
     const handleSignIn = () => {
         if(!username || !password) {
             setSignInError(true);
+            setErrorMessage("Username or password can't be empty")
         }
         else {
             setSignInError(false);
-            sessionStorage.setItem('username', username);
-            navigate('/home');
+
+            const body = {
+                username: username,
+                password: password
+            }
+
+            const headers = {
+                "content-type": "application/json"
+            }
+
+            fetch(`http://localhost:8000/user_login`, {
+                method: 'POST',
+                body: JSON.stringify(body),
+                headers: headers
+            })
+            .then(response => {
+                response.json().then(data => {
+                    if(!data.userExists) {
+                        setSignInError(true);
+                        setErrorMessage("Username and password doesn't match");
+                    }
+                    if(data.userExists) {
+                        setSignInError(false);
+                        sessionStorage.setItem('username', username);
+                        navigate('/home');
+                    }
+                })
+            })
         }
     }
 
@@ -52,7 +80,7 @@ const SignIn = () => {
                         <LockRoundedIcon style={{fontSize: 'medium', color: '#3f4156', marginRight: '5px'}} />
                         Login
                     </button>
-                    {signInError?<p className='signInSignUpError'>Username or password are either empty or doesnot exist.</p>:<></>}
+                    {signInError?<p className='signInSignUpError'>{errorMessage}</p>:<></>}
                 </div>
                 <p className='signInSignUpBottonText'>Haven't signed up yet?</p>
                 <p className='toSignUpSignIn' onClick={handleToSignUp}>Sign Up</p>

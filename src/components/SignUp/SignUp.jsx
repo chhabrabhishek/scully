@@ -6,15 +6,11 @@ const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [balance, setBalance] = useState(0);
     const [signUpError, setSignUpError] = useState(false);
-
-    const handleName = (e) => {
-        setName(e.target.value);
-    }
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleUsername = (e) => {
         setUsername(e.target.value);
@@ -29,13 +25,41 @@ const SignUp = () => {
     }
 
     const handleSignUp = () => {
-        if(!name || !username || !password || !balance) {
+        if(!username || !password || !balance) {
             setSignUpError(true);
+            setErrorMessage("No field can be empty.");
         }
         else {
             setSignUpError(false);
-            sessionStorage.setItem('username', username);
-            navigate('/home');
+
+            const body = {
+                username: username,
+                password: password,
+                balance: balance
+            }
+
+            const headers = {
+                "content-type": "application/json"
+            }
+
+            fetch(`http://localhost:8000/user_sign_up`, {
+                method: 'POST',
+                body: JSON.stringify(body),
+                headers: headers
+            })
+            .then(response => {
+                response.json().then(data => {
+                    if(data.usernameExists) {
+                        setSignUpError(true);
+                        setErrorMessage("Username already exists");
+                    }
+                    if(data.userAdded) {
+                        setSignUpError(false);
+                        sessionStorage.setItem('username', username);
+                        navigate('/home');
+                    }
+                })
+            })
         }
     }
 
@@ -48,10 +72,6 @@ const SignUp = () => {
             <div className='signInSignUpContent'>
                 <div className='signInSignUpTitle'>REGISTER</div>
                 <p className='signInSignUpSubTitle'>Let's manage your transactions</p>
-                <div className='signInSignUpFields'>
-                    <p className='signInSignUpFieldsTitle'>Name:</p>
-                    <input className='signInSignUpInput' placeholder='e.g. Abhishek Chhabra' onChange={handleName} />
-                </div>
                 <div className='signInSignUpFields'>
                     <p className='signInSignUpFieldsTitle'>Username:</p>
                     <input className='signInSignUpInput' placeholder='e.g. abhishek_chhabra@gmail.com' onChange={handleUsername} />
@@ -69,9 +89,9 @@ const SignUp = () => {
                         <LockRoundedIcon style={{fontSize: 'medium', color: '#3f4156', marginRight: '5px'}} />
                         Register
                     </button>
-                    {signUpError?<p className='signInSignUpError'>No field can be empty.</p>:<></>}
+                    {signUpError?<p className='signInSignUpError'>{errorMessage}</p>:<></>}
                 </div>
-                <p className='signInSignUpBottonText'>Already signed up yet?</p>
+                <p className='signInSignUpBottonText'>Already signed up?</p>
                 <p className='toSignUpSignIn' onClick={handleToSignIn}>Sign In</p>
             </div>
         </div>

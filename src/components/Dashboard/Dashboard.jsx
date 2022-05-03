@@ -18,6 +18,7 @@ const Dashboard = () => {
     return (
         <div className='dashboardParent'>
             <div className='addTransaction'>
+                <p className='greeting'>Hello @{sessionStorage.getItem('username')}</p>
                 <Button className='addTransactionButton' variant="text" startIcon={<PaidRoundedIcon />}>
                     Add a Transaction
                 </Button>
